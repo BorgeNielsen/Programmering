@@ -19,7 +19,7 @@ const makeCards = array => {
         h.innerHTML = name
         
         let p = document.createElement('p')
-        p.innerHTML = 'Telefon: 45 45 46 46 <br>Alder:44'
+        p.innerHTML = 'Telefon: 12 34 56 78 <br>Alder:69'
         
         top.append(h)
         bottom.append(p)
@@ -33,9 +33,7 @@ const makeCards = array => {
 makeCards(namelist)
 
 search.addEventListener('input', () => {
-    //console.log(search.value)
     let results = namelist.filter( name => name.includes( search.value ) )
-    //console.log(results)
     main.innerHTML = ''
     makeCards(results)  
 })
