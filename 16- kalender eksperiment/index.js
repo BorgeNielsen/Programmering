@@ -1,3 +1,4 @@
+
 fetch("./kalender.json")
 .then( res => res.json())
 .then(json => {
@@ -6,15 +7,9 @@ fetch("./kalender.json")
         let div = document.createElement('div')
         div.id = door.date + ' December'
         div.classList.add('door')
-        div.setAttribute('onclick',"alert(click)")
         div.style.width = door.width
         div.style.height = door.height
         div.innerHTML = door.date
-
-
-        div.onclick = function(){
-            alert("CUJM")
-        }
 
         //en switch er et loop//
         switch(door.content){
