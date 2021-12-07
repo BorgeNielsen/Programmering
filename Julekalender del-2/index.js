@@ -15,48 +15,54 @@ var JUL = setInterval(function() {
 
 }, 1000)
 
-
-
-
-
-
 fetch("./kalender.json")
 .then( res => res.json())
 .then(json => {
     console.log(json)
     json.days.map( door => {
+        
         let div = document.createElement('div')
         div.id = door.date
         div.classList.add('door')
         div.setAttribute('onclick',"toggleDoor")
         div.style.width = door.width
         div.style.height = door.height
-        div.innerHTML = door.date
+        div.innerHTML = door.embed
 
 
-       /* div.onclick = function(){
-           document.getElementById(door.date).style.width="100vw"
-           document.getElementById(door.date).style.height="100vh"
-           
-        } 
-        */
+        let lock = document.createElement('div')
+            lock.classList.add('lock')
+            lock.innerHTML = door.date
+            
 
-        //en switch er et loop//
-       /*
-        switch(door.content){
-            case 'image':
-                setImage(div, door)
-                break
-            case 'Yt': 
-                setYt(div, door)
+          
+            lock.addEventListener('click', () => {
+                switch(door.animation){
+                    case'lock':
+                        lock.classList.add('open')
+                        lock.innerHTML=''
+                        break
+                        
+                        case'christmas':
+                        lock.classList.add('openChristmas')
+                        lock.innerHTML=''
+                        break
+
+                        case'slide':
+                        lock.classList.toggle('doorOpen')
+                        lock.innerHTML=''
+                        break
+                    default:
+                        lock.classList.add('doorOpen')
+                        lock.innerHTML=''
+                        break
+                }
+            })
+            
                 
-                break
-            default:
-                break
-        }
-        */
-
-     
+                div.append(lock)
+            
+            
 
         document.querySelector('main').append(div)
         var element = document.querySelectorAll(".door")[0];
@@ -76,9 +82,5 @@ const setImage = (div, obj) => {
 
 const setYt = (div, obj) => {
     div.innerhtml = obj.embed
-    
-}
-
-const setSpecificApi = (div, obj) => {
     
 }
