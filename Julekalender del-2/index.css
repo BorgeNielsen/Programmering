@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Julee&display=swap');
+
 *{
+    font-family: Julee;
     padding: 0;
     margin: 0;
 }
@@ -30,7 +33,7 @@ footer{
 .door{
     background-color: red;
     place-content: center;
-    border: black 1px solid;
+    border: black 2px solid;
     border-radius: 1rem;
     padding: 10px;
     margin: 10px 0 10px 0;
@@ -41,12 +44,18 @@ footer{
     transition: all 0.5s ease-in-out;
 }
 
+/*.doorLeft{
+    transform-origin: left;
+}*/
+
 .doorOpen{
+    transform-origin: 0% 50%;
     transform: perspective(1200px)
     translateZ(0px)
     translateX(0px) 
     translateY(0px)
     rotateY(-105deg);
+    transition: all 0.5s ease-in-out;
 }
 
 .door:hover{
@@ -59,7 +68,6 @@ footer{
     display: grid;
     grid-auto-flow: column;
     align-items: center;
-    
 }
 
 #days{
@@ -91,6 +99,8 @@ footer{
     font-size:4rem;
     z-index:5;
     transition: all 1s ease-in-out;
+    
+    border-radius: 1rem;
 }
 
 

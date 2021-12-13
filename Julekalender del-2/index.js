@@ -1,19 +1,41 @@
+const gåVæk = new Audio("./assets/gåVæk.mp3");
+
 var countDownDate = new Date("Dec 24, 2021 00:00:01").getTime();
 var JUL = setInterval(function() {
     var now = new Date().getTime();
     var timeleft = countDownDate - now;
+    
         
     var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
     var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
 
-    document.getElementById("days").innerHTML = days + ":"
-    document.getElementById("hours").innerHTML = hours + ":" 
-    document.getElementById("mins").innerHTML = minutes + ":" 
-    document.getElementById("secs").innerHTML = seconds + ""
+
+
+        let nulHour = ''
+        if(hours < 10) nulHour = '0'
+        
+        
+        let nulMin = ''
+        if(minutes < 10) nulMin = '0'
+     
+    
+        let nulSec = ''
+        if(seconds < 10) nulSec = '0'
+     
+    
+
+
+
+
+    document.getElementById("days").innerHTML = days + ":" 
+    document.getElementById("hours").innerHTML = nulHour + hours + ":" 
+    document.getElementById("mins").innerHTML = nulMin + minutes + ":" 
+    document.getElementById("secs").innerHTML = nulSec + seconds + ""
 
 }, 1000)
+
 
 fetch("./kalender.json")
 .then( res => res.json())
@@ -33,32 +55,24 @@ fetch("./kalender.json")
         let lock = document.createElement('div')
             lock.classList.add('lock')
             lock.innerHTML = door.date
-            
 
-          
             lock.addEventListener('click', () => {
                 switch(door.animation){
-                    case'lock':
-                        lock.classList.add('open')
-                        lock.innerHTML=''
-                        break
-                        
-                        case'christmas':
-                        lock.classList.add('openChristmas')
-                        lock.innerHTML=''
-                        break
-
                         case'slide':
+                        lock.classList.toggle('doorLeft')
                         lock.classList.toggle('doorOpen')
-                        lock.innerHTML=''
+                        //lock.innerHTML=''
                         break
                     default:
                         lock.classList.add('doorOpen')
-                        lock.innerHTML=''
+                        //lock.innerHTML=''
                         break
                 }
             })
             
+            lock.addEventListener('click', () => {
+                gåVæk.play()
+            })
                 
                 div.append(lock)
             
