@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P5.js</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js" integrity="sha512-N4kV7GkNv7QR7RX9YF/olywyIgIwNvfEe2nZtfyj73HdjCUkAfOBDbcuJ/cTaN04JKRnw1YG1wnUyNKMsNgg3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+   
+    <header>
+        <h1>Stråling på månen</h1>
+        <h3>Andreas Kragh Viese - SO Case - 06.03.2022</h3>
+    </header>
+
+    <div class="slideshow-container">
+
+        <div class="slides fade">
+            <div class="nummer">1 / 4</div>
+            <img src="./assets/pic1.jpg" style="width:100%">
+            <div class="text">For at skabe et sikkert sted for astronauter på månen skal man bruge en halv meters vægge lavet af månestøv.</div>
+        </div>
+  
+        <div class="slides fade">
+            <div class="nummer">2 / 4</div>
+            <img src="./assets/pic2.jpg" style="width:100%">
+            <div class="text">Solen skabe store mængde stråling. Den skaber i sær stråling ved store eksplosioner på dens overflade.</div>
+        </div>
+  
+        <div class="slides fade">
+            <div class="nummer">3 / 4</div>
+            <img src="./assets/pic3.jpg" style="width:100%">
+            <div class="text">Hvis man skulle bruge bly til beskytelse, så kunne hvade 8,8 m<sup>3</sup> med ad gangen, hvis man bruge et SpaceX Starship.</div>
+        </div>
+
+        <div class="slides fade">
+            <div class="nummer">4 / 4</div>
+            <img src="./assets/pic4.jpg" style="width:100%">
+            <div class="text">Kosmisk stråling bombardere konstant månens overflade. Denne stråling kommer fra overalt i universet.</div>
+        </div>
+ 
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        
+     </div>
+
+ <footer>
+    <div style="text-align:center">
+        <span class="knap" onclick="setSlide(1)"></span>
+        <span class="knap" onclick="setSlide(2)"></span>
+        <span class="knap" onclick="setSlide(3)"></span>
+        <span class="knap" onclick="setSlide(4)"></span>
+    </div>
+</footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
